@@ -6,6 +6,13 @@ import Header from "@/components/Header";
 import { Button } from "@/components/ui/button";
 import useSwornMembers from "@/hooks/useSwornMembers";
 import { Badge } from "@/components/ui/badge";
+import {
+  Card,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 const HousePage = () => {
   const router = useRouter();
@@ -28,15 +35,26 @@ const HousePage = () => {
           <div className="grid grid-cols-3 gap-5 mt-3">
             {swornMembers &&
               swornMembers.map((member) => (
-                <div
-                  key={member.url}
-                  className="bg-gray-100 p-5 rounded-md border-slate-200 border flex flex-row justify-between"
+                <Card
+                  key={house.url}
+                  className=" w-full shadow shadow-gray-500/50 flex flex-col justify-evenly"
                 >
-                  <h1>{member.name}</h1>
-                  <Badge variant={member.died !== "" ? "default" : "alive"}>
-                    {member.died !== "" ? "dead" : "alive"}
-                  </Badge>
-                </div>
+                  <CardHeader>
+                    <CardTitle className="flex justify-center align-middle">
+                      {member.name}
+                    </CardTitle>
+
+                    {member.died !== "" ? (
+                      <CardDescription className="flex justify-center align-middle">
+                        Died: {member.died}
+                      </CardDescription>
+                    ) : (
+                      <CardDescription className="flex justify-center align-middle">
+                        Alive
+                      </CardDescription>
+                    )}
+                  </CardHeader>
+                </Card>
               ))}
           </div>
         </>

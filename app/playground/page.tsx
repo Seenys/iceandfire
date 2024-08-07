@@ -11,6 +11,7 @@ import {
 import { Button } from "@/components/ui/button";
 import useHouses from "@/hooks/useHouses";
 import { House } from "@/types/houses";
+import { Badge } from "@/components/ui/badge";
 
 const PlayGroundPage = () => {
   const { houses, isLoading, isError } = useHouses();
@@ -21,8 +22,13 @@ const PlayGroundPage = () => {
   };
 
   return (
-    <div className=" w-full p-6 gap-4 m-5">
+    <div className="p-6 gap-4 m-5 flex flex-col">
       <h1> this is a play ground page</h1>
+      <div className="gap-5 gap">
+        <Badge variant="alive">Alive</Badge>
+        <Badge variant="destructive">Dead</Badge>
+        <Badge variant="default">?????</Badge>
+      </div>
 
       <Button variant="default" onClick={handleButtonClick}>
         Get Houses
