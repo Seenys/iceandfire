@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import { usePathname, useRouter } from "next/navigation";
-import useHouses from "@/hooks/useHouses";
 import useGetHouse from "@/hooks/useGetHouse";
 import Header from "@/components/Header";
 import { Button } from "@/components/ui/button";
